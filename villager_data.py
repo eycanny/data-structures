@@ -10,10 +10,16 @@ def all_species(filename):
     Return:
         - set[str]: a set of strings
     """
+    #Cyrano|Anteater|Cranky|Education|Don't punch your nose to spite your face.
 
     species = set()
 
-    # TODO: replace this with your code
+    villager_data = open(filename)
+
+    for line in villager_data:
+        line = line.rstrip()
+        villager_attributes = line.split("|")
+        species.add(villager_attributes[1])
 
     return species
 
