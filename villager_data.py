@@ -21,6 +21,8 @@ def all_species(filename):
         villager_attributes = line.split("|")
         species.add(villager_attributes[1])
 
+    villager_data.close()
+
     return species
 
 
@@ -34,10 +36,26 @@ def get_villagers_by_species(filename, search_string="All"):
     Return:
         - list[str]: a list of names
     """
+    #Cyrano|Anteater|Cranky|Education|Don't punch your nose to spite your face.
 
     villagers = []
 
-    # TODO: replace this with your code
+    villager_data = open(filename)
+
+    for line in villager_data:
+        line = line.rstrip()
+        villager_attributes = line.split("|")
+
+        species = villager_attributes[1]
+        names = villager_attributes[0]
+
+        if search_string.title() == species:
+            villagers.append(names)
+        elif search_string.title() == "All" or search_string == "":
+            villagers.append(names)
+
+
+    villager_data.close()
 
     return sorted(villagers)
 
