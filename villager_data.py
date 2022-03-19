@@ -70,9 +70,22 @@ def all_names_by_hobby(filename):
         - list[list[str]]: a list of lists containing names
     """
 
-    # TODO: replace this with your code
+    #Cyrano|Anteater|Cranky|Education|Don't punch your nose to spite your face.
+    #Antonio|Anteater|Jock|Fitness|Always go for the burn!
 
-    return []
+    #create a list of a list of names
+    all_names_by_hobby = []
+    #create a list of hobbies
+    names_by_hobbies = []
+
+    villager_data = open(filename)
+
+    for line in villager_data:
+        line = line.rstrip()
+        villager_attributes = line.split("|")
+        hobby = villager_attributes[3]
+
+    return villager_attributes
 
 
 def all_data(filename):
