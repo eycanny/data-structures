@@ -137,10 +137,24 @@ def find_motto(filename, villager_name):
     Return:
         - str: the villager's motto or None
     """
+    #Cyrano|Anteater|Cranky|Education|Don't punch your nose to spite your face.
 
-    # TODO: replace this with your code
+    villager_data = open(filename)
+
+    for line in villager_data:
+        line = line.rstrip()
+        villager_attributes = line.split("|")
+
+        name = villager_attributes[0]
+        motto = villager_attributes[4]
+
+        if villager_name.title() == name:
+            return motto
 
 
+    villager_data.close()
+    return None
+    
 def find_likeminded_villagers(filename, villager_name):
     """Return a set of villagers with the same personality as the given villager.
 
