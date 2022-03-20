@@ -73,19 +73,25 @@ def all_names_by_hobby(filename):
     #Cyrano|Anteater|Cranky|Education|Don't punch your nose to spite your face.
     #Antonio|Anteater|Jock|Fitness|Always go for the burn!
 
-    #create a list of a list of names
-    all_names_by_hobby = []
-    #create a list of hobbies
-    names_by_hobbies = []
+    # #create a list of a list of names
+    # all_names_by_hobby = []
+    # #create a list of hobbies
+    # names_by_hobbies = []
 
-    villager_data = open(filename)
+    # villager_data = open(filename)
 
-    for line in villager_data:
-        line = line.rstrip()
-        villager_attributes = line.split("|")
-        hobby = villager_attributes[3]
+    # for line in villager_data:
+    #     line = line.rstrip()
+    #     villager_attributes = line.split("|")
 
-    return villager_attributes
+    #     name = villager_attributes[0]
+    #     hobby = villager_attributes[3]
+
+    #     if hobby not in hobbies:
+    #         names_by_hobbies = [hobby, name]
+    #     else:
+
+    # return all_names_by_hobby
 
 
 def all_data(filename):
@@ -100,10 +106,20 @@ def all_data(filename):
     Return:
         - list[tuple[str]]: a list of tuples containing strings
     """
-
+    #Cyrano|Anteater|Cranky|Education|Don't punch your nose to spite your face.
     all_data = []
 
-    # TODO: replace this with your code
+    villager_data = open(filename)
+
+    for line in villager_data:
+        line = line.rstrip()
+        villager_attributes = line.split("|")
+
+        villager = tuple(villager_attributes)
+
+        all_data.append(villager)
+
+    villager_data.close()
 
     return all_data
 
