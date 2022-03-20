@@ -72,26 +72,44 @@ def all_names_by_hobby(filename):
 
     #Cyrano|Anteater|Cranky|Education|Don't punch your nose to spite your face.
     #Antonio|Anteater|Jock|Fitness|Always go for the burn!
+    villagers = []
 
-    # #create a list of a list of names
-    # all_names_by_hobby = []
-    # #create a list of hobbies
-    # names_by_hobbies = []
+    villager_data = open(filename)
 
-    # villager_data = open(filename)
+    for line in villager_data:
+        line = line.rstrip()
+        villager_attributes = line.split("|")
+        villagers.append(villager_attributes)
+    
+    hobbies = []
+    names_by_hobbies = []
 
-    # for line in villager_data:
-    #     line = line.rstrip()
-    #     villager_attributes = line.split("|")
+    for villager in villagers:
+        name, species, personality, hobby, motto = villager
 
-    #     name = villager_attributes[0]
-    #     hobby = villager_attributes[3]
+        #if it is a new hobby, add to hobby list and add name as a new list object in names by hobbies list
+        if hobby not in hobbies:
+            hobbies.append(hobby)
+            names = []
+            names += [name]
+            names_by_hobbies.append(names)
+        
+        else:
+            i = 0
+            while i < len(hobbies):
+                if hobby != hobbies[i]:
+                    i += 1
+                elif hobby == hobbies[i]:
+                    break
+            names_by_hobbies[i] += [name]
 
-    #     if hobby not in hobbies:
-    #         names_by_hobbies = [hobby, name]
-    #     else:
+    all_names_by_hobby = []
 
-    # return all_names_by_hobby
+    for names in names_by_hobbies:
+        names.sort()
+        all_names_by_hobby.append(names)
+
+    return all_names_by_hobby
 
 
 def all_data(filename):
