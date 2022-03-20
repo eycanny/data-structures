@@ -186,7 +186,7 @@ def find_likeminded_villagers(filename, villager_name):
     same_personality = set()
 
     for villager in list_of_villagers:
-        if villager[2] == base_personality and villager[0] != villager_name:
+        if villager[2] == base_personality:
             same_personality.add(villager[0])
 
     return same_personality
